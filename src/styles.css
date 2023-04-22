@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Bree Serif", serif;
+}
+.footer-gap {
+  min-height: 100vh;
+  padding-top: 70px;
+}
+.small-screens {
+  display: none;
+}
+
+.page-img {
+  background-image: url("./assets/images/about.jpg");
+  box-shadow: inset 0 0 0 1000px rgba(44, 38, 84, 0.841);
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sub-button {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 768px) {
+  .small-screens {
+    display: block;
+  }
+  .large-screens {
+    display: none;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .list-group {
+    font-size: inherit;
+  }
+  h5 {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,62 @@
+<div class="container-fluid py-2">
+  <!-- -----------for large screens---------- -->
+  <div class="container large-screens">
+    <p-card
+      header="Mid-Night Guard"
+      subheader="Creative Agency"
+      [style]="{ width: '360px' }"
+    >
+      <ng-template pTemplate="header">
+        <img
+          alt="logo"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+        <li>$3500 - $4000</li>
+        <li>Full Time</li>
+        <li>7 hours ago</li>
+      </ul>
+      <ng-template pTemplate="footer">
+        <div class="sub-button">
+          <a class="btn btn-info" routerLink="/apply">Apply</a>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+
+  <!-- --------------for small screens------------ -->
+  <div class="container small-screens">
+    <div class="list-group" style="width: 100%; overflow-x: scroll">
+      <a
+        href="#"
+        class="list-group-item list-group-item-action"
+        aria-current="true"
+      >
+        <div class="row">
+          <div class="col-2">
+            <img
+              src="../../assets/images/guard_logo.png"
+              width="60"
+              height="60"
+            />
+          </div>
+          <div class="col-10">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Mid-Night Guard</h5>
+              <small>3 days ago</small>
+            </div>
+            <div class="d-flex w-100 justify-content-start">
+              <p style="margin-right: 10px">Creative Agency</p>
+              <p style="margin-right: 10px">
+                <i class="pi pi-map-marker"></i>Athens, Greece
+              </p>
+              <p>$3500 - $4000</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

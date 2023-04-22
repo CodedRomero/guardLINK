@@ -1,0 +1,20 @@
+/* .small-screens {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .small-screens {
+    display: block;
+  }
+  .large-screens {
+    display: none;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .list-group {
+    font-size: inherit;
+  }
+  h5 {
+    font-size: inherit;
+  }
+} */

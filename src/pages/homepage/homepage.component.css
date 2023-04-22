@@ -1,0 +1,65 @@
+.landing_img {
+  background-image: url("../../assets/images/h1_hero.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* position: relative; */
+  top: 0;
+  opacity: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  font-size: 50px;
+}
+.apply-process {
+  background-image: url("../../assets/images/how-applybg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+  color: white;
+}
+.single-process {
+  box-shadow: rgba(16, 132, 241, 0.949) 0px 5px 15px;
+  padding: 30px;
+}
+.pi {
+  font-size: 30px;
+  padding: 20px;
+}
+.process-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.why-us {
+  padding: 30px;
+}
+.why-us .single-process {
+  box-shadow: rgba(133, 231, 244, 0.949) 0px 5px 15px;
+  padding: 30px;
+}
+.why-us .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+@media only screen and (max-width: 768px) {
+  .single-process {
+    margin-top: 10px;
+  }
+  .landing_img {
+    height: 60vh;
+  }
+}
+@media only screen and (max-width: 425px) {
+  h1,
+  .btn {
+    font-size: inherit;
+  }
+}

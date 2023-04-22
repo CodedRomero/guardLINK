@@ -1,0 +1,182 @@
+<div class="container-fluid">
+  <!-- <div class="row"> -->
+  <!-- <div class="container"> -->
+  <div class="item">
+    <!-- --------------intro area----------- -->
+    <div class="col-lg-5 col-md-5 col-sm-12">
+      <h1 class="text-center">Welcome to GuardLINK</h1>
+      <h5>Create new account or login to continue</h5>
+      <p><a routerLink="/contact">Contact Us</a> for support</p>
+      <!-- ----------------login-------------- -->
+      <a
+        *ngIf="showLogin == false"
+        class="btn btn-info"
+        (click)="onShowLogin()"
+        type="button"
+        style="margin-right: 5px"
+        >Login</a
+      >
+      <!-- ----------register------------ -->
+      <a
+        *ngIf="showLogin"
+        class="btn btn-info"
+        (click)="onShowRegister()"
+        type="button"
+        style="margin-right: 5px"
+        >Register</a
+      >
+      <!-- ------------home page-------- -->
+      <a
+        class="btn btn-info"
+        routerLink="/"
+        type="button"
+        style="margin-right: 5px"
+        >Home</a
+      >
+      <!-- -------------forgot password-------- -->
+      <a class="btn btn-info" (click)="onForgotPassword()" type="button"
+        >Forgot Password</a
+      >
+      <p>
+        By creating account or using our services, you're agreeing to our
+        <a routerLink="/policy">Privacy policy</a> and
+        <a routerLink="/terms">Terms of service</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ------------login form----------- -->
+  <div class="item">
+    <div class="col-lg-5 col-md-5 col-sm-12" *ngIf="showLogin">
+      <h1 class="text-center">Login</h1>
+      <p-card>
+        <!----------------email address----------->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Email Address"
+          />
+        </div>
+
+        <!-- --------------password-------- -->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Password"
+          />
+        </div>
+        <!-- ------------register button---------- -->
+        <div class="reg-button">
+          <a type="button" class="btn btn-info" routerLink="/profile">Login</a>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- ---------register card ------------- -->
+  <div class="item" *ngIf="showLogin == false">
+    <div class="col-lg-5 col-md-5 col-sm-12">
+      <h1 class="text-center">Create Account</h1>
+      <p-card>
+        <!-- ---------------name-------------- -->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Enter your name"
+          />
+        </div>
+        <!-- -------------phone number------------- -->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Phone Number"
+          />
+        </div>
+        <!-- ------------email address----------- -->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Email Address"
+          />
+        </div>
+        <!-- ---------------password----------- -->
+        <div class="form-group">
+          <input
+            pInputText
+            class="form-control valid"
+            name="name"
+            id="name"
+            type="text"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter your name'"
+            placeholder="Password"
+          />
+        </div>
+        <!-- ------------register button---------- -->
+        <div class="reg-button">
+          <a type="button" class="btn btn-info" routerLink="/profile"
+            >Register</a
+          >
+        </div>
+      </p-card>
+    </div>
+  </div>
+  <!--  -->
+  <!-- -----------------forgot password--------------- -->
+  <p-dialog
+    header="Forgot Password"
+    [(visible)]="showForgotPassword"
+    [style]="{ width: '70vw' }"
+  >
+    <div>
+      <!----------------email address----------->
+      <div class="form-group">
+        <input
+          pInputText
+          class="form-control valid"
+          name="name"
+          id="name"
+          type="text"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter your name'"
+          placeholder="Email Address"
+        />
+      </div>
+
+      <!-- ------------reset password button---------- -->
+      <div class="reg-button">
+        <button type="button" class="btn btn-info">Reset Password</button>
+      </div>
+    </div>
+  </p-dialog>
+</div>

@@ -1,0 +1,16 @@
+.form-group {
+  padding-bottom: 5px;
+}
+
+.form-title {
+  color: #0083c1;
+}
+.sub-button {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.desc {
+  text-align: justify;
+}

@@ -1,0 +1,13 @@
+.conttainer-fluid {
+  background-color: #474555;
+  color: #aba9bb;
+}
+.logo-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.footer-nav {
+  text-decoration: none;
+  color: #aba9bb;
+}
