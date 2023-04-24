@@ -7,6 +7,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     DialogModule,
     DropdownModule,
+    RouterModule,
   ],
   exports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     DialogModule,
     DropdownModule,
+    RouterModule,
   ],
 })
 export class CoreModule {}

@@ -6,7 +6,7 @@
     "guardlink": {
       "projectType": "application",
       "schematics": {},
-      "root": "src",
+      "root": " ",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
