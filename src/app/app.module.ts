@@ -14,6 +14,11 @@ import { FooterComponent } from 'src/components/footer/footer.component';
 import { FeaturedComponent } from 'src/components/featured/featured.component';
 import { HomeModule } from 'src/pages/homepage/home.module';
 import { NavbarModule } from 'src/components/navbar/navbar.module';
+import {
+  AsyncPipe,
+  HashLocationStrategy,
+  LocationStrategy,
+} from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +34,10 @@ import { NavbarModule } from 'src/components/navbar/navbar.module';
     // NavbarModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    AsyncPipe,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
