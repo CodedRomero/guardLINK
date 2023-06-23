@@ -3,77 +3,100 @@
   <section class="jobs-listing">
     <div class="container-fluid page-img">
       <h1 class="text-center text-white">Get Your Job</h1>
+      <!-- --------------search field--------------- -->
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <!-- form -->
+          <!-- <form
+            target="_blank"
+            method="get"
+            class="subscribe_form relative mail_part"
+          >
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search category"
+                aria-describedby="button-addon2"
+              />
+              <button class="btn btn-info" type="button">
+                <i class="pi pi-search"></i>
+              </button>
+            </div>
+          </form> -->
+          <!-- --------category selection -->
+          <p class="text-white">Select Category</p>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            (change)="getSelectedValue($event)"
+            [(ngModel)]="selectedName"
+          >
+            <option
+              *ngFor="let category of featuredJobs"
+              value="{{ category['name'] }}"
+            >
+              {{ category["name"] }}
+            </option>
+          </select>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="job-list">
     <div class="container-fluid py-3">
-      <!-- ------------for large screens---------- -->
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-5">
-            <!-- ------------job list----------- -->
-            <div class="container large-screens">
-              <p-card
-                header="Mid-Night Guard"
-                subheader="Creative Agency"
-                [style]="{ width: '360px' }"
-              >
-                <ng-template pTemplate="header">
-                  <img
-                    alt="logo"
-                    src="https://primefaces.org/cdn/primeng/images/usercard.png"
-                  />
-                </ng-template>
-                <ul>
-                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                  <li>$3500 - $4000</li>
-                  <li>Full Time</li>
-                  <li>7 hours ago</li>
-                </ul>
+      <div class="row justify-content-center">
+        <h3 class="text-center">{{ selectedName }}</h3>
+        <!-- <h3 class="text-center">Cleaning & Janitorial Services</h3> -->
 
-                <ng-template pTemplate="footer">
-                  <div class="sub-button">
-                    <a class="btn btn-info" routerLink="/apply">Apply</a>
-                  </div>
-                </ng-template>
-              </p-card>
-            </div>
+        <!-- ==============loading spinner============== -->
+        <div class="text-center" *ngIf="loading">
+          <div
+            class="spinner-border text-info"
+            role="status"
+            style="width: 3rem; height: 3rem"
+          >
+            <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-      </div>
-
-      <!-- --------------for small screens------------ -->
-      <div class="container small-screens">
-        <div class="list-group" style="width: 100%; overflow-x: scroll">
-          <a
-            href="#"
-            class="list-group-item list-group-item-action"
-            aria-current="true"
+        <!-- ---------------recent jobs----------- -->
+        <div class="row" *ngIf="!loading">
+          <div
+            class="col-sm-10 col-md-4 col-lg-4 py-2"
+            *ngIf="companies.length == 0"
           >
-            <div class="row">
-              <div class="col-2">
-                <img
-                  src="../../assets/images/guard_logo.png"
-                  width="60"
-                  height="60"
-                />
+            <h5>This Category is Empty</h5>
+          </div>
+          <div
+            class="col-sm-10 col-md-4 col-lg-3 py-2"
+            *ngFor="let company of companies; index as i"
+          >
+            <div class="card">
+              <img
+                src="https://primefaces.org/cdn/primeng/images/usercard.png"
+                class="card-img-top"
+                alt="Logo"
+              />
+
+              <div class="card-body">
+                <h5>{{ company["officeTitle"] }}</h5>
+                <h6>{{ company["companyName"] }}</h6>
+                <ul>
+                  <li>{{ company["companyLocation"] }}</li>
+
+                  <li>{{ company["staffType"] }}</li>
+                </ul>
               </div>
-              <div class="col-10">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Mid-Night Guard</h5>
-                  <small>3 days ago</small>
-                </div>
-                <div class="d-flex w-100 justify-content-start">
-                  <p style="margin-right: 10px">Creative Agency</p>
-                  <p style="margin-right: 10px">
-                    <i class="pi pi-map-marker"></i>Athens, Greece
-                  </p>
-                  <p>$3500 - $4000</p>
+              <div class="card-footer bg-info">
+                <div class="sub-button">
+                  <a class="btn fw-bold" (click)="viewCompanyDetails(company)"
+                    >Apply Now</a
+                  >
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>

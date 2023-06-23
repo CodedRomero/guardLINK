@@ -15,6 +15,17 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   color: #7bcff6;
+}
+li {
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .btn {
+    margin-bottom: 5px;
+  }
+  h4 {
+    text-align: center;
+  }
 }

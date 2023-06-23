@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngFor="let details of user">
   <div class="container intro">
     <div class="col-6">
       <div class="d-flex justify-content-center">
@@ -9,27 +9,56 @@
           class="img-fluid"
         />
       </div>
-      <h4 class="text-center">Full name</h4>
-      <h6>email address</h6>
+      <h6 class="">{{ details["userName"] }}</h6>
+      <h6>{{ details["userEmail"] }}</h6>
       <!-- ------------buttons----------------- -->
       <div>
-        <a class="btn btn-info" href="" style="margin-right: 10px"
+        <a class="btn btn-info" href="#" style="margin-right: 10px"
           >Change Password</a
         >
-        <a class="btn btn-info" routerLink="/" href="">Logout</a>
+        <a class="btn btn-info" routerLink="/jobs" style="margin-right: 10px"
+          >Find Jobs</a
+        >
+        <a class="btn btn-info" (click)="logOut()">Logout</a>
       </div>
     </div>
   </div>
   <!-- --------------applied jobs------------- -->
   <div class="container pt-2">
     <h4>Applied jobs</h4>
-    <h6>Jobs you applied will appear here</h6>
-    <ul class="list-group">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
+    <!-- ==============loading spinner============== -->
+    <div class="text-center" *ngIf="loading">
+      <div
+        class="spinner-border text-info"
+        role="status"
+        style="width: 3rem; height: 3rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="text-center" *ngIf="requests.length == 0 && loading == false">
+      <p>You have not applied for any job</p>
+      <a
+        class="btn btn-info"
+        routerLink="/jobs"
+        type="button"
+        style="margin-right: 5px"
+        >Find jobs</a
+      >
+    </div>
+    <!-- <div *ngIf="requests.length != 0"> -->
+    <ol class="list-group list-group-numbered">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start my-1"
+        *ngFor="let request of requests; index as i"
+        (click)="onDelete(request)"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{ request["companyName"] }}</div>
+          <div>{{ request["requestDate"] }}</div>
+          Status: <strong>{{ request["requestAccepted"] }}</strong>
+        </div>
+      </li>
+    </ol>
   </div>
 </div>

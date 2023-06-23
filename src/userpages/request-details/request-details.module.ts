@@ -5,14 +5,14 @@ import { RouterModule } from '@angular/router';
 import { NavbarModule } from 'src/components/navbar/navbar.module';
 import { FooterModule } from 'src/components/footer/footer.module';
 import { CoreModule } from 'src/core/core.modules';
-import { ProfileRoutingModule } from './profile.routing';
-import { ProfileComponent } from './profile.component';
+import { RequestDetailsComponent } from './request-details.component';
+import { RequestDetailsRoutingModule } from './request-details.routing';
 
 @NgModule({
-  declarations: [ProfileComponent],
+  declarations: [RequestDetailsComponent],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
+    RequestDetailsRoutingModule,
     NavbarModule,
     FooterModule,
     CoreModule,
@@ -20,4 +20,4 @@ import { ProfileComponent } from './profile.component';
   ],
   // exports: [JobsComponent],
 })
-export class ProfileModule {}
+export class RequestDetailsModule {}

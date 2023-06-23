@@ -3,59 +3,66 @@
   <Div class="container">
     <!-- -----------company description--------- -->
 
-    <h4 class="pt-2">About Creative Agency</h4>
+    <h4 class="pt-2">About {{ company["companyName"] }}</h4>
     <p class="desc">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis
-      minima ab dolores repellat expedita ipsa earum doloremque repudiandae
-      minus laboriosam itaque dicta tempore reprehenderit neque quibusdam
-      numquam, quia in unde quas sed qui iusto consectetur iste. Eveniet
-      distinctio cumque architecto voluptatum possimus, voluptate vel molestias
-      beatae illum nesciunt impedit mollitia ex, delectus similique veniam
-      obcaecati voluptates aliquam eaque, deserunt reiciendis provident ut culpa
-      quos! Molestias, consequatur dolorum ex, praesentium modi sint placeat
-      nihil qui atque in sunt officia omnis beatae dolores! Enim fugit
-      necessitatibus voluptates commodi, eius sapiente minus quas vitae
-      consequuntur adipisci a quos repellat libero sunt tempora.
+      {{ company["companyDescription"] }}
     </p>
 
     <!-- ------------job description----------- -->
     <h4>Job Description</h4>
     <p class="desc">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore quidem
-      reiciendis odit ullam. Dolore magnam quasi reprehenderit sed, illo cum rem
-      accusamus, ipsam maxime repellat iste ut facere aspernatur labore
-      necessitatibus libero pariatur commodi eum perspiciatis. Ad, nostrum atque
-      optio molestiae repellendus vitae iste molestias quam, itaque dolorem
-      deleniti hic?
+      {{ company["jobDescription"] }}
     </p>
-    <h4>Application for Night Guard</h4>
+    <h4>Application for {{ company["officeTitle"] }}</h4>
 
     <!-- -----------application form--------- -->
 
     <div class="row">
       <div class="col-lg-6">
-        <form action="">
+        <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
           <!-- ----------- full name ------------ -->
           <h6 class="form-title">Full Name</h6>
           <div class="form-group">
             <input
               pInputText
-              class="form-control valid"
-              name="name"
-              id="name"
+              class="form-control"
+              name="userName"
+              id="userName"
               type="text"
               onfocus="this.placeholder = ''"
               onblur="this.placeholder = 'Enter your name'"
+              formControlName="userName"
+              required
+            />
+          </div>
+          <!-- ----------- contact number ------------ -->
+          <h6 class="form-title">Contact Number</h6>
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control"
+              name="userContact"
+              id="userContact"
+              type="text"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your contact'"
+              formControlName="userContact"
+              required
             />
           </div>
           <!-- ---------------gender----------- -->
 
           <h6 class="form-title">Select Gender</h6>
           <div class="form-group">
-            <select class="form-select" aria-label="Default select example">
+            <select
+              class="form-select"
+              aria-label="Default select gender"
+              formControlName="userGender"
+              required
+            >
               <!-- <option selected>Select gender</option> -->
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
           <!-- ------------------date of birth--------- -->
@@ -63,12 +70,14 @@
           <div class="form-group">
             <input
               pInputText
-              class="form-control valid"
-              name="name"
-              id="name"
+              class="form-control"
+              name="userBirthDate"
+              id="userBirthDate"
               type="date"
               onfocus="this.placeholder = ''"
-              onblur="this.placeholder = 'Enter your name'"
+              onblur="this.placeholder = 'Select date of birth'"
+              formControlName="userBirthDate"
+              required
             />
           </div>
 
@@ -77,12 +86,14 @@
           <div class="form-group">
             <input
               pInputText
-              class="form-control valid"
-              name="name"
-              id="name"
+              class="form-control"
+              name="userLocation"
+              id="userLocation"
               type="text"
               onfocus="this.placeholder = ''"
-              onblur="this.placeholder = 'Enter your name'"
+              onblur="this.placeholder = 'Enter your location'"
+              formControlName="userLocation"
+              required
             />
           </div>
           <!-- -------------postal address-------- -->
@@ -91,34 +102,43 @@
             <input
               pInputText
               class="form-control valid"
-              name="name"
-              id="name"
+              name="userAddress"
+              id="userAddress"
               type="text"
               onfocus="this.placeholder = ''"
-              onblur="this.placeholder = 'Enter your name'"
+              onblur="this.placeholder = 'Enter postal address'"
+              formControlName="userAddress"
+              required
             />
           </div>
 
           <!-- ----------------educational background--------- -->
           <h6 class="form-title">Select Highest Educational Level</h6>
           <div class="form-group">
-            <select class="form-select" aria-label="Default select example">
-              <!-- <option selected>Select highest educational level</option> -->
-              <option value="elimentary">Elimentary Level</option>
-              <option value="highSchool">High School</option>
-              <option value="tertiary">Tertiary Level</option>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="userEducation"
+              required
+            >
+              <option value="Elimentary">Elimentary Level</option>
+              <option value="HighSchool">High School</option>
+              <option value="Tertiary">Tertiary Level</option>
             </select>
           </div>
 
           <!-- -------------identification card type--------- -->
           <h6 class="form-title">Identification Type</h6>
           <div class="form-group">
-            <select class="form-select" aria-label="Default select example">
-              <!-- <option selected>Identification Type</option> -->
-              <option value="nationalId">National ID Card</option>
-              <option value="driversLincense">Drivers License</option>
-
-              <option value="votersId">Voters ID Card</option>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="userIdType"
+              required
+            >
+              <option value="NationalId">National ID Card</option>
+              <option value="DriversLincense">Drivers License</option>
+              <option value="VotersId">Voters ID Card</option>
             </select>
           </div>
           <!-- --------------- card number------------ -->
@@ -127,35 +147,52 @@
             <input
               pInputText
               class="form-control valid"
-              name="name"
-              id="name"
+              name="userIdNumber"
+              id="userIdNumber"
               type="text"
               onfocus="this.placeholder = ''"
-              onblur="this.placeholder = 'Enter your name'"
+              onblur="this.placeholder = 'Enter your card-number'"
+              formControlName="userIdNumber"
+              required
             />
+          </div>
+          <!-- =============view pdf============== -->
+          <div class="py-1" *ngIf="pdfSrc != ''">
+            <!-- {{ pdfSrc }} -->
+            <pdf-viewer
+              [src]="pdfSrc"
+              [render-text]="true"
+              [original-size]="false"
+              [show-all]="false"
+              [page]="1"
+              style="height: 400px"
+            ></pdf-viewer>
           </div>
           <!-- -----------pdf of card ----------- -->
           <h6 class="form-title">PDF of Identification Card</h6>
           <div class="input-group mb-3">
             <input
               type="file"
+              (change)="upLoad($event)"
+              name="userIdPdf"
               class="form-control"
-              id="inputGroupFile02"
+              id="userIdPdf"
               accept=".pdf"
+              formControlName="userIdPdf"
+              required
             />
-            <!-- <label class="input-group-text" for="inputGroupFile02"
-              >Upload</label
-            > -->
           </div>
           <!-- -------------disclaimer----------- -->
           <div class="form-check">
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="userAgreement"
+              id="userAgreement"
+              formControlName="userAgreement"
+              required
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label class="form-check-label">
               I hereby declare that the information provided is true and
               correct. I also understand that any willful dishonesty may render
               for refusal of this application or immediate termination of
@@ -163,9 +200,15 @@
             </label>
           </div>
 
-          <!-- --------------submit button--------- -->
+          <!-- --------------submit button  --------- -->
           <div class="sub-button">
-            <button class="btn btn-info">Submit</button>
+            <button
+              type="submit"
+              [disabled]="!applicationForm.valid"
+              class="btn btn-info"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>

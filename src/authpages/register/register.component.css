@@ -30,6 +30,6 @@ a {
 }
 @media only screen and (max-width: 768px) {
   .container-fluid {
-    height: 100vh;
+    height: 100%;
   }
 }

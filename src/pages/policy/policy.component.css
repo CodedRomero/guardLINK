@@ -1,5 +1,7 @@
-h6 {
+h6,
+h3 {
   font-weight: bold;
+  color: #0083c1;
 }
 p {
   text-align: justify;

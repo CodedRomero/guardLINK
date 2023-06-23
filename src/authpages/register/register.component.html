@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <!-- <div class="row"> -->
   <!-- <div class="container"> -->
-  <div class="item">
+  <div class="item pt-1">
     <!-- --------------intro area----------- -->
     <div class="col-lg-5 col-md-5 col-sm-12">
       <h1 class="text-center">Welcome to GuardLINK</h1>
@@ -28,10 +28,10 @@
       <!-- ------------home page-------- -->
       <a
         class="btn btn-info"
-        routerLink="/"
+        routerLink="/jobs"
         type="button"
         style="margin-right: 5px"
-        >Home</a
+        >Jobs</a
       >
       <!-- -------------forgot password-------- -->
       <a class="btn btn-info" (click)="onForgotPassword()" type="button"
@@ -45,109 +45,133 @@
     </div>
   </div>
 
-  <!-- ------------login form----------- -->
-  <div class="item">
-    <div class="col-lg-5 col-md-5 col-sm-12" *ngIf="showLogin">
+  <!-- ------------=====login form========----------- -->
+  <div class="item mb-3">
+    <div class="col-lg-6 col-md-6 col-sm-12" *ngIf="showLogin">
       <h1 class="text-center">Login</h1>
       <p-card>
-        <!----------------email address----------->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Email Address"
-          />
-        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+          <!----------------email address----------->
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="email"
+              id="email"
+              type="email"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your email'"
+              placeholder="Email Address"
+              formControlName="userEmail"
+              required
+            />
+          </div>
 
-        <!-- --------------password-------- -->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Password"
-          />
-        </div>
-        <!-- ------------register button---------- -->
-        <div class="reg-button">
-          <a type="button" class="btn btn-info" routerLink="/profile">Login</a>
-        </div>
+          <!-- --------------password-------- -->
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="password"
+              id="password"
+              type="password"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your password'"
+              placeholder="Password"
+              formControlName="userPassword"
+              required
+            />
+          </div>
+          <!-- ------------login button---------- -->
+          <div class="reg-button">
+            <button
+              type="submit"
+              [disabled]="!loginForm.valid"
+              class="btn btn-info"
+            >
+              Login
+            </button>
+          </div>
+        </form>
       </p-card>
     </div>
   </div>
 
-  <!-- ---------register card ------------- -->
-  <div class="item" *ngIf="showLogin == false">
-    <div class="col-lg-5 col-md-5 col-sm-12">
+  <!-- ==============register card ==================== -->
+  <div class="item mb-5" *ngIf="showLogin == false">
+    <div class="col-lg-6 col-md-6 col-sm-12">
       <h1 class="text-center">Create Account</h1>
       <p-card>
         <!-- ---------------name-------------- -->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Enter your name"
-          />
-        </div>
-        <!-- -------------phone number------------- -->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Phone Number"
-          />
-        </div>
-        <!-- ------------email address----------- -->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Email Address"
-          />
-        </div>
-        <!-- ---------------password----------- -->
-        <div class="form-group">
-          <input
-            pInputText
-            class="form-control valid"
-            name="name"
-            id="name"
-            type="text"
-            onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'Enter your name'"
-            placeholder="Password"
-          />
-        </div>
-        <!-- ------------register button---------- -->
-        <div class="reg-button">
-          <a type="button" class="btn btn-info" routerLink="/profile"
-            >Register</a
-          >
-        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              formControlName="userName"
+              required
+            />
+          </div>
+          <!-- -------------phone number------------- -->
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="Phone Number"
+              id="Phone Number"
+              type="text"
+              onfocus="this.placeholder = 'Phone Number'"
+              onblur="this.placeholder = 'Phone Number'"
+              placeholder="Phone Number"
+              formControlName="userContact"
+              required
+            />
+          </div>
+          <!-- ------------email address----------- -->
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="email"
+              id="email"
+              type="email"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your email'"
+              placeholder="Email Address"
+              formControlName="userEmail"
+              required
+            />
+          </div>
+          <!-- ---------------password----------- -->
+          <div class="form-group">
+            <input
+              pInputText
+              class="form-control valid"
+              name="password"
+              id="password"
+              type="password"
+              onfocus="this.placeholder = 'Enter password'"
+              onblur="this.placeholder = 'Enter password'"
+              placeholder="Password"
+              formControlName="userPassword"
+              required
+            />
+          </div>
+          <!-- ------------register button---------- -->
+          <div class="reg-button">
+            <button
+              type="submit"
+              [disabled]="!registerForm.valid"
+              class="btn btn-info"
+            >
+              Register
+            </button>
+          </div>
+        </form>
       </p-card>
     </div>
   </div>
@@ -164,18 +188,22 @@
         <input
           pInputText
           class="form-control valid"
-          name="name"
-          id="name"
-          type="text"
+          name="email"
+          id="email"
+          type="email"
           onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter your name'"
+          onblur="this.placeholder = 'Enter your email'"
           placeholder="Email Address"
+          [(ngModel)]="forgot_email"
+          required
         />
       </div>
 
       <!-- ------------reset password button---------- -->
       <div class="reg-button">
-        <button type="button" class="btn btn-info">Reset Password</button>
+        <button type="submit" (click)="onResetPassword()" class="btn btn-info">
+          Reset Password
+        </button>
       </div>
     </div>
   </p-dialog>

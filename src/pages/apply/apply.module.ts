@@ -9,6 +9,7 @@ import { FooterModule } from 'src/components/footer/footer.module';
 import { CoreModule } from 'src/core/core.modules';
 import { ApplyComponent } from './apply.component';
 import { ApplyRoutingModule } from './apply.routing';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [ApplyComponent],
@@ -19,6 +20,7 @@ import { ApplyRoutingModule } from './apply.routing';
     FooterModule,
     CoreModule,
     RouterModule,
+    PdfViewerModule,
   ],
   // exports: [JobsComponent],
 })

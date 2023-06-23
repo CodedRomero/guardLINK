@@ -18,3 +18,10 @@
     font-size: inherit;
   }
 } */
+
+/* img {
+  height: 250px;
+} */
+li {
+  cursor: pointer;
+}
